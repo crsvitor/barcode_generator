@@ -1,9 +1,9 @@
-# Setting up environment
+# Set up environment
 
 Before properly starting the project, it is important to setup the environment.
 
 ## Installing python
-First things first, to install python and manage different versions of it, 
+First things first, to install python and manage different versions of it,
 it was used pyenv.
 
 ## Creating repository
@@ -48,7 +48,7 @@ repos:
         entry: pylint
         language: system
         types: [python]
-        args: 
+        args:
           [
             "-rn", # Only display messages
             "-sn", # Don't display the score
@@ -60,5 +60,5 @@ Link to git: ```pre-commit install``.
 
 ## Requirements
 After all set up, since .venv packages is not committed, it is necessary
-to have all packages described somewhere, thus, there is a command: 
+to have all packages described somewhere, thus, there is a command:
 ``.venv/bin/pip3 freeze > requirements.txt``
