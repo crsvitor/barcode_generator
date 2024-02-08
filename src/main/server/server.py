@@ -1,16 +1,5 @@
-from flask import Flask, request, jsonify
-from barcode import Code128
-from barcode.writer import ImageWriter
+from flask import Flask
+from src.main.routes.tag_routes import tag_blueprint_routes
 
 app = Flask(__name__)
-
-@app.route("/create_tag", methods=["POST"])
-def create_tag():
-    body = request.json
-    product_code = body.get("product_code")
-
-    tag = Code128(product_code, writer=ImageWriter())
-    tag_path = f'tags/{tag}'
-    tag.save(tag_path)
-
-    return jsonify({ "tag_path": tag_path })
+app.register_blueprint(tag_blueprint_routes)
