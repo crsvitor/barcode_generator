@@ -1,6 +1,5 @@
 from typing import Dict
-from barcode import Code128
-from barcode.writer import ImageWriter
+from src.drivers.bar_code_handler import BarcodeHandler
 
 class CreateTagController:
     def execute(self, product_code: str):
@@ -8,9 +7,8 @@ class CreateTagController:
         return self.__format_response(tag_path=tag_path)
 
     def __create_tag(self, product_code: str) -> str:
-        tag = Code128(product_code, writer=ImageWriter())
-        tag_path = f'tags/{tag}'
-        tag.save(tag_path)
+        barcode_handler = BarcodeHandler()
+        tag_path = barcode_handler.create_barcode(product_code=product_code)
         return tag_path
 
     def __format_response(self, tag_path: str) -> Dict:
