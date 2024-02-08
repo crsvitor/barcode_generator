@@ -14,6 +14,3 @@ def create_tag():
     tag.save(tag_path)
 
     return jsonify({ "tag_path": tag_path })
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='3000')
